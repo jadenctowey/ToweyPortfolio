@@ -6,6 +6,13 @@ export const metadata = {
   title: "Bloom: Art Marketplace Platform — Jaden Towey",
 };
 
+const label = {
+  fontFamily: "var(--font-mono)",
+  fontSize: ".72rem",
+  color: "var(--cream-55)",
+  marginRight: 4,
+};
+
 export default function Bloom() {
   return (
     <div className="page">
@@ -13,72 +20,101 @@ export default function Bloom() {
 
       <div className="hero">
         <div className="kicker">
-          Product Design &amp; Full-Stack Development · 2026 — Present
+          Full-Stack Engineering &amp; Product Design · Aug – Nov 2026
         </div>
         <h1>Bloom: Art Marketplace Platform</h1>
         <div className="statement">
-          Translating an existing art advisory business into a three-sided
-          digital product — without building more infrastructure than the
-          business needs today.
+          I designed and built a three-sided art marketplace from the
+          founder&apos;s brief to a live production app — collectors,
+          artists, and Bloom&apos;s own team on one codebase, with real
+          auth, a real database, and an admin console the founder runs
+          herself.
         </div>
-        <div className="stage-flag">
-          Current stage — product design / prototyping
+        <div
+          className="stage-flag"
+          style={{ color: "#7fc29b", borderColor: "#7fc29b" }}
+        >
+          Shipped — live in production
+        </div>
+        {/* TODO: add the official link once app.artforbloom.com is connected */}
+        <div className="meta-grid">
+          <div>
+            <div className="k">Role</div>
+            <div className="v">
+              Sole engineer &amp; product designer, working directly with
+              the founder
+            </div>
+          </div>
+          <div>
+            <div className="k">Focus</div>
+            <div className="v">
+              <div>Full-Stack Development</div>
+              <div>Product &amp; UX Design</div>
+              <div>Data Modeling &amp; Security</div>
+            </div>
+          </div>
+          <div>
+            <div className="k">Tools</div>
+            <div className="v">
+              <div>Next.js · React / TypeScript</div>
+              <div>Supabase (Postgres, Auth, Storage)</div>
+              <div>Resend · Vercel · Figma</div>
+            </div>
+          </div>
         </div>
       </div>
 
       <Section label="From business to product">
         <p>
-          I&apos;m working directly with Bloom&apos;s founder to turn her
-          existing art-advisory business into a digital prototype. My work
-          started by translating business requirements into user flows,
-          screens, component rules, interaction patterns, and an
-          implementation plan — before touching production build. The
-          product has collector, artist, and Bloom-admin experiences, and
-          the current prototype is scoped to validate the idea, not become a
-          full marketplace overnight.
+          Bloom is an artist-first art advisory in London: artists keep
+          100% of their listed price, collectors pay a buyer&apos;s premium
+          for curation and advisory. The founder came to me with a business
+          and a set of briefs, not a spec. I translated those into user
+          flows, an 11-screen design system and blueprint, a data model,
+          and a build plan — then built the whole thing, end to end.
+        </p>
+        <p>
+          It went through three stages: a clickable prototype on mock data
+          to validate the flows, a round of founder feedback (11 product
+          decisions, all implemented), and then a real backend — accounts,
+          database, image uploads, emails — deployed to production on
+          Vercel.
         </p>
       </Section>
 
       <Section label="How it connects" flip>
         <p>
-          I mapped the dependencies between the three experiences before
-          designing individual screens. An artist&apos;s work passes through
-          Bloom&apos;s approval workflow before reaching collectors;
-          collector requests flow back into Bloom&apos;s internal sales
-          pipeline.
+          The three experiences only touch at Bloom&apos;s admin gates. An
+          artist&apos;s work can&apos;t reach collectors until Bloom
+          approves it and confirms its price; every collector request lands
+          back with Bloom, who runs the high-touch sale personally.
         </p>
         <div className="flow-h">
-          <span className="flow-box">06 Artist dashboard</span>
+          <span className="flow-box">Artist applies</span>
           <span className="flow-arrow">→</span>
-          <span className="flow-box">07 Upload work</span>
+          <span className="flow-box admin">Bloom approves</span>
           <span className="flow-arrow">→</span>
-          <span className="flow-box admin">11 Price Confidence (admin)</span>
+          <span className="flow-box">Upload work</span>
+          <span className="flow-arrow">→</span>
+          <span className="flow-box admin">Price confirmed</span>
         </div>
         <div className="flow-arrow" style={{ padding: "6px 0 6px 20px" }}>
-          ↓ confirmed → live
+          ↓ live in the feed
         </div>
         <div className="flow-h">
-          <span className="flow-box">01 Onboarding</span>
+          <span className="flow-box">Taste onboarding</span>
           <span className="flow-arrow">→</span>
-          <span className="flow-box">02 Swipe feed</span>
+          <span className="flow-box">Swipe / save / pass</span>
           <span className="flow-arrow">→</span>
-          <span className="flow-box">03 Artwork detail</span>
+          <span className="flow-box">Artwork &amp; artist</span>
           <span className="flow-arrow">→</span>
-          <span className="flow-box">04 Artist profile</span>
-          <span className="flow-arrow">→</span>
-          <span className="flow-box">05 Inquiries</span>
+          <span className="flow-box">Inquiry</span>
         </div>
         <div className="flow-arrow" style={{ padding: "6px 0 6px 130px" }}>
-          ↓ request / visit
+          ↓ request / studio visit / Ask Bloom
         </div>
         <div className="flow-h">
-          <span className="flow-box admin">09 Sales pipeline (admin)</span>
-        </div>
-        <div className="caption">
-          The artist chain (top) and collector chain (middle) only touch at
-          two admin gates: 11 confirms a price before it can reach the feed,
-          09 is where every collector request lands for Bloom to work by
-          hand.
+          <span className="flow-box admin">Sales pipeline (admin)</span>
         </div>
       </Section>
 
@@ -87,207 +123,188 @@ export default function Bloom() {
           <div>
             <h4>Collector</h4>
             <ul>
-              <li>Mobile-first discovery</li>
-              <li>Swipe / save</li>
-              <li>Artwork details</li>
-              <li>Artist profiles</li>
-              <li>Requests · inquiries</li>
+              <li>Hinge-style taste onboarding</li>
+              <li>Ranked discovery feed</li>
+              <li>Save / pass with reasons</li>
+              <li>Artwork &amp; artist profiles</li>
+              <li>Inquiries with clear statuses</li>
+              <li>Ask Bloom messaging</li>
+              <li>Privacy choice: share / anonymous / ask first</li>
             </ul>
           </div>
           <div>
             <h4>Artist</h4>
             <ul>
-              <li>Upload work</li>
-              <li>Metadata</li>
-              <li>Pricing feedback</li>
-              <li>Review states</li>
+              <li>Invite-only access + application</li>
+              <li>Upload works with metadata</li>
+              <li>Price confidence feedback</li>
+              <li>Draft → review → live states</li>
+              <li>Profile &amp; CV builder</li>
               <li>Engagement insights</li>
             </ul>
           </div>
           <div>
             <h4>Admin</h4>
             <ul>
-              <li>Sales pipeline</li>
-              <li>Artist roster</li>
-              <li>Listing review</li>
-              <li>Pricing confirmation</li>
+              <li>Sales pipeline (Kanban)</li>
+              <li>Artist roster &amp; approvals</li>
+              <li>Price engine — confirm / override</li>
+              <li>Buyer activity dashboard</li>
+              <li>Communication inbox</li>
+              <li>Site editor for public pages</li>
             </ul>
           </div>
         </div>
         <p style={{ marginTop: 16 }}>
-          One codebase, three surfaces — the ~50-collector cohort touches
-          mobile; the ~10 committed artists and Logan work on desktop.
+          One Next.js codebase, three surfaces: mobile-first for
+          collectors, desktop for artists and the Bloom team. Each has its
+          own entry point — no role picker — so collectors get a private,
+          luxurious front door and the admin console stays unlinked.
         </p>
-        <div className="chips">
-          <span
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: ".72rem",
-              color: "var(--cream-55)",
-              marginRight: 4,
-            }}
-          >
-            COLLECTOR
-          </span>
-          <span className="chip-num">01</span>
-          <span className="chip-num">02</span>
-          <span className="chip-num">03</span>
-          <span className="chip-num">04</span>
-          <span className="chip-num">05</span>
-        </div>
-        <div className="chips">
-          <span
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: ".72rem",
-              color: "var(--cream-55)",
-              marginRight: 4,
-            }}
-          >
-            ARTIST
-          </span>
-          <span className="chip-num">06</span>
-          <span className="chip-num">07</span>
-          <span className="chip-num">08</span>
-        </div>
-        <div className="chips">
-          <span
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: ".72rem",
-              color: "var(--cream-55)",
-              marginRight: 4,
-            }}
-          >
-            ADMIN
-          </span>
-          <span className="chip-num">09</span>
-          <span className="chip-num">10</span>
-          <span className="chip-num">11</span>
-        </div>
-        <div className="caption">
-          Show one large selected screen beneath the contact sheet rather
-          than all 11 at full size.
-        </div>
       </Section>
 
-      <Section label="Design system" flip>
+      <Section label="Backend & security" flip>
         <p>
-          I converted Bloom&apos;s existing visual language into reusable
-          interface rules instead of designing each screen independently —
-          frame sizes, spacing, type hierarchy, sharp-cornered components,
-          restrained interaction states, one shared system across collector,
-          artist, and admin. Restraint rule: the artwork brings the color,
-          the UI stays slate, white, ink, and off-white.
+          I moved the prototype from mock data to a real Supabase backend
+          and treated security as part of the product, not an afterthought.
+        </p>
+        <ul style={{ color: "var(--cream)", paddingLeft: 22, fontSize: ".92rem" }}>
+          <li style={{ marginBottom: 6 }}>
+            <b>Postgres schema</b> — 14 tables (artists, artworks, pricing,
+            price history, swipes, inquiries, messages, preferences,
+            applications, events, site content…) built through versioned
+            SQL migrations
+          </li>
+          <li style={{ marginBottom: 6 }}>
+            <b>Row-level security</b> — 39 policies so each role can only
+            read and write its own data; artists never see collector
+            identities or Bloom&apos;s premium
+          </li>
+          <li style={{ marginBottom: 6 }}>
+            <b>Passwordless auth</b> — magic-link sign-in with branded
+            email templates, plus server-side middleware that checks role
+            before any protected page loads
+          </li>
+          <li style={{ marginBottom: 6 }}>
+            <b>Image storage</b> — artwork and site photos compressed in
+            the browser before upload to storage buckets
+          </li>
+          <li style={{ marginBottom: 6 }}>
+            <b>Transactional email</b> — new inquiries and artist
+            applications notify Bloom via Resend; users only ever get
+            sign-in emails, never a flood
+          </li>
+        </ul>
+      </Section>
+
+      <Section label="Price confidence">
+        <p>
+          Pricing emerging artists is the founder&apos;s hardest call, so I
+          built a transparent engine instead of a black box. Seven weighted
+          factors produce a 0–100 score and a confidence tier; a human
+          always confirms or overrides before a price goes live. Collectors
+          only ever see the tier.
+        </p>
+        <div className="flow-h">
+          <span className="flow-box">Comparables 30</span>
+          <span className="flow-box">Sales history 20</span>
+          <span className="flow-box">Credentials 20</span>
+          <span className="flow-box">Rule band 15</span>
+          <span className="flow-box">Gallery · recency · edition 5 each</span>
+        </div>
+        <div className="flow-arrow" style={{ padding: "6px 0 6px 20px" }}>
+          ↓
+        </div>
+        <div className="flow-h">
+          <span className="flow-box">Score → tier</span>
+          <span className="flow-arrow">→</span>
+          <span className="flow-box admin">Bloom confirms</span>
+          <span className="flow-arrow">→</span>
+          <span className="flow-box">Live price</span>
+        </div>
+        <p style={{ marginTop: 14 }}>
+          Every swipe, save, pass reason, and inquiry is stored against the
+          artwork&apos;s category — the start of the consent-based demand
+          dataset that sets Bloom apart from a generic marketplace.
+        </p>
+      </Section>
+
+      <Section label="Built to hand off" flip>
+        <p>
+          The goal was for the founder to run Bloom without needing me. The
+          admin console lets her approve artists, move deals through the
+          pipeline, confirm prices, answer collector messages, and edit the
+          public pages&apos; copy and photos herself — changes save
+          straight to the database and show up immediately. I only need to
+          touch the code if something breaks.
+        </p>
+      </Section>
+
+      <Section label="Design system">
+        <p>
+          I pulled the visual language straight from artforbloom.com so the
+          app feels like a natural extension of the brand: sharp corners,
+          hairline dividers, generous whitespace, and a restraint rule —
+          the artwork brings the color, the UI stays quiet.
         </p>
         <div className="swatch-strip">
-          <div className="s">
-            <div className="c" style={{ background: "#526372" }} />
-            <div className="l">Slate #526372</div>
-          </div>
-          <div className="s">
-            <div className="c" style={{ background: "#f5f5ef" }} />
-            <div className="l">Off-white #F5F5EF</div>
-          </div>
           <div className="s">
             <div className="c" style={{ background: "#ffffff" }} />
             <div className="l">White #FFFFFF</div>
           </div>
           <div className="s">
-            <div className="c" style={{ background: "#1f1f1f" }} />
-            <div className="l">Ink #1F1F1F</div>
+            <div className="c" style={{ background: "#526372" }} />
+            <div className="l">Slate #526372</div>
           </div>
           <div className="s">
-            <div className="c" style={{ background: "#4b8b6b" }} />
-            <div className="l">Success #4B8B6B</div>
+            <div className="c" style={{ background: "#3d3813" }} />
+            <div className="l">Olive ink #3D3813</div>
           </div>
           <div className="s">
-            <div className="c" style={{ background: "#b8863f" }} />
-            <div className="l">Warn #B8863F</div>
+            <div className="c" style={{ background: "#f1eadd" }} />
+            <div className="l">Ecru accent #F1EADD</div>
+          </div>
+          <div className="s">
+            <div className="c" style={{ background: "#ebebeb" }} />
+            <div className="l">Line #EBEBEB</div>
           </div>
         </div>
       </Section>
 
-      <Section label="Building the right MVP">
+      <Section label="Building the right MVP" flip>
         <p>
           Some of the most important decisions were about what{" "}
           <i>not</i> to build. Bloom&apos;s client base is deliberately
-          small, so we skipped full in-app checkout, direct
-          buyer↔artist messaging, tax handling, native apps, and
-          ML-driven pricing for the first prototype. Instead of a payment
-          layer before the workflow is validated, a collector&apos;s request
-          routes back to Bloom so the founder keeps running the high-touch
-          sale herself.
+          small, so we left out in-app checkout, direct buyer↔artist
+          messaging, tax handling, native apps, and ML pricing. Payments
+          happen outside the app, and every request routes back to Bloom so
+          the founder keeps the high-touch sale — the part of the business
+          she&apos;s actually selling.
         </p>
-        <ol
-          style={{
-            color: "var(--cream)",
-            marginTop: 14,
-            paddingLeft: 22,
-            fontSize: ".92rem",
-          }}
-        >
-          <li style={{ marginBottom: 6 }}>
-            <b>Foundations</b> — palette, type ramp, one sharp-cornered
-            button, one status tag
-          </li>
-          <li style={{ marginBottom: 6 }}>
-            <b>Collector chain</b> — 01→05, the surface real collectors touch
-            first
-          </li>
-          <li style={{ marginBottom: 6 }}>
-            <b>Artist portal</b> — 06→08, wired to placeholder pricing bands
-          </li>
-          <li style={{ marginBottom: 6 }}>
-            <b>Admin console</b> — 09→11, both gates connected end to end
-          </li>
-          <li style={{ marginBottom: 6 }}>
-            <b>High-fidelity pass</b> — real artwork images in place of
-            placeholder blocks
-          </li>
-        </ol>
       </Section>
 
-      <Section label="Data / price confidence" flip>
-        <p>
-          The prototype intentionally uses a simple rule engine rather than
-          pretending to need ML. Artist and work characteristics map to a
-          suggested price range, which still requires human confirmation
-          before it appears publicly. Collector saves and enquiries can
-          eventually feed a longer-term demand-tracking dataset — the thing
-          that differentiates Bloom from a generic marketplace.
-        </p>
-        <div className="flow-h">
-          <span className="flow-box">
-            Career stage + medium + size band + region
-          </span>
-          <span className="flow-arrow">→</span>
-          <span className="flow-box">Price range</span>
-          <span className="flow-arrow">→</span>
-          <span className="flow-box admin">Bloom review</span>
-          <span className="flow-arrow">→</span>
-          <span className="flow-box">Confirmed price</span>
-        </div>
-      </Section>
-
-      <Section label="Labeling honestly">
-        <p>
-          Because this is only beginning development, the page should say so
-          plainly rather than reading like the whole platform already
-          exists:
-        </p>
+      <Section label="Process">
         <div className="flow-h">
           <span className="flow-box">Discovery</span>
           <span className="flow-arrow">→</span>
-          <span className="flow-box">Figma</span>
+          <span className="flow-box">Design system</span>
           <span className="flow-arrow">→</span>
-          <span className="flow-box">Architecture</span>
+          <span className="flow-box">Clickable prototype</span>
           <span className="flow-arrow">→</span>
-          <span className="flow-box">Development</span>
+          <span className="flow-box">Founder feedback</span>
           <span className="flow-arrow">→</span>
-          <span className="flow-box">Testing</span>
+          <span className="flow-box">Backend</span>
           <span className="flow-arrow">→</span>
-          <span className="flow-box">Launch</span>
+          <span className="flow-box admin">Launch ✓</span>
+        </div>
+        <div className="chips" style={{ marginTop: 12 }}>
+          <span style={label}>STACK</span>
+          <span className="chip-num">Next.js 14</span>
+          <span className="chip-num">TypeScript</span>
+          <span className="chip-num">Supabase</span>
+          <span className="chip-num">Postgres + RLS</span>
+          <span className="chip-num">Resend</span>
+          <span className="chip-num">Vercel</span>
         </div>
       </Section>
 
