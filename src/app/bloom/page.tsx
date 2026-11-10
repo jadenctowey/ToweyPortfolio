@@ -20,7 +20,7 @@ export default function Bloom() {
 
       <div className="hero">
         <div className="kicker">
-          Full-Stack Engineering &amp; Product Design · Aug – Nov 2026
+          Full-Stack Engineering &amp; Product Design · Aug 2026 — Present
         </div>
         <h1>Bloom: Art Marketplace Platform</h1>
         <div className="statement">
@@ -34,7 +34,7 @@ export default function Bloom() {
           className="stage-flag"
           style={{ color: "#7fc29b", borderColor: "#7fc29b" }}
         >
-          Shipped — live in production
+          Shipped — live in production · ongoing support
         </div>
         {/* TODO: add the official link once app.artforbloom.com is connected */}
         <div className="meta-grid">
@@ -235,8 +235,9 @@ export default function Bloom() {
           admin console lets her approve artists, move deals through the
           pipeline, confirm prices, answer collector messages, and edit the
           public pages&apos; copy and photos herself — changes save
-          straight to the database and show up immediately. I only need to
-          touch the code if something breaks.
+          straight to the database and show up immediately. Since launch, I
+          check in on how everything is running, fix anything that comes up,
+          and keep helping as new needs arise.
         </p>
       </Section>
 

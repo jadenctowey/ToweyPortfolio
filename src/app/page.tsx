@@ -26,7 +26,7 @@ const projects = [
   },
   {
     href: "/bloom",
-    dates: "08.19.2026 – 11.09.2026",
+    dates: "08.19.2026 – Present",
     title: "Bloom: Art Marketplace Platform",
     badgeClass: "badge-bloom",
     badgeText: "bloom",
